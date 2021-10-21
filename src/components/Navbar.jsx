@@ -15,9 +15,11 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const Navbar = (props) => {
+const Navbar = () => {
 
-    const {setOpenBuscarPedido, url} = props
+    //******************** 
+    // Props
+    //********************
 
     const classes = useStyles();
 
@@ -55,8 +57,6 @@ const Navbar = (props) => {
           pathname:"/"
         })
       }
-
-    
       
     return (
         <div>
@@ -64,9 +64,7 @@ const Navbar = (props) => {
                 <Toolbar>
                     <Grid container spacing={1} alignItems="center">
                         <Grid item container xs={6} justifyContent="flex-start">
-                            <IconButton aria-label="" onClick={irAHome}>
-                                <Typography variant="h6" style={{color:"#fff"}} > PedidosYa</Typography>
-                            </IconButton>
+                            <Typography variant="h6" > PedidosYa</Typography>
                         </Grid>
                         <Grid item container xs={6} justifyContent="flex-end" spacing={4}>
 
@@ -85,17 +83,6 @@ const Navbar = (props) => {
                                 open={Boolean(anchorEl)}
                                 onClose={handleClose}
                             >
-                                {
-                                    url.includes("pedido")?
-                                        null
-                                    :
-                                        <>
-                                            <MenuItem onClick={()=> {setOpenBuscarPedido(true); handleClose()}} > Buscar pedidos </MenuItem>
-                                            <Divider/>
-                                        </>
-                                }
-                                
-
                                 <MenuItem onClick={irARegistro}>Registrar mi comercio</MenuItem>
 
                                 {
@@ -107,7 +94,6 @@ const Navbar = (props) => {
                                 }
 
                                 <Divider/>
-
                                 <MenuItem onClick={handleClose}>cerrar</MenuItem>
 
 

@@ -25,6 +25,7 @@ export const ListaComercios = (props) => {
               nombreLocal={comercio.nombre}
               telefono={comercio.telefono}
               urlLogo= {comercio.logo}
+              promCalificacion ={comercio.promCalificacion}
               key={comercio.idComercio} />
           })
 

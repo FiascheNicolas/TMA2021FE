@@ -9,6 +9,7 @@ import DateRangeIcon from '@material-ui/icons/DateRange';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import CommentIcon from '@material-ui/icons/Comment';
+import StarIcon from '@material-ui/icons/Star';
 const useStyles = makeStyles((theme) => Estilos(theme));
 
 const CardLocalDetallado = (props) => {
@@ -33,6 +34,7 @@ const CardLocalDetallado = (props) => {
                     <Grid container item alignItems="center"><DateRangeIcon/><Typography>&nbsp;{comercio.diasAbierto}</Typography></Grid>
                     <Grid container item alignItems="center"><AccessTimeIcon/><Typography>&nbsp;{comercio.horario}</Typography></Grid>
                     <Grid container item alignItems="center"><LocalShippingIcon/><Typography>&nbsp;${comercio.costoEnvio} costo envío</Typography></Grid>
+                    <Grid container item alignItems="center"><StarIcon/><Typography>&nbsp;{comercio.promCalificacion}</Typography></Grid>
                 </Grid>
                 <Grid xs={12} style={{paddingInline:10}}>
                     <Typography><span style={{fontWeight:"bold"}}>Descripción: </span>{comercio.descripcion}</Typography>

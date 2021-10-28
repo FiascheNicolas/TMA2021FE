@@ -6,16 +6,18 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import StarIcon from '@material-ui/icons/Star';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import { useHistory } from 'react-router-dom';
+import { yellow } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => Estilos(theme));
 
 export const CardLocal = (props) => {
   //Estilos
   const classes = useStyles();
-
   //parametros
-  const { idComercio, nombreLocal, telefono, urlLogo } = props;
+  const { idComercio, nombreLocal, telefono, urlLogo, promCalificacion } = props;
 
   //hooks
   const history = useHistory()
@@ -35,25 +37,22 @@ export const CardLocal = (props) => {
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2}>
             <Grid item xs>
-              <Typography
-                gutterBottom
-                variant="subtitle1"
-                className={classes.tituloLocal}
-              >
-                {nombreLocal}
-              </Typography>
-              <Typography variant="body2" gutterBottom>
-                Entrega entre 20 y 30 minutos
-              </Typography>
-              <Typography variant="body2" color="textSecondary">
-                <PhoneIcon fontSize="small" />
-                Teléfono: {telefono}
-              </Typography>
+              <Grid container item alignItems="center">
+                <Typography gutterBottom
+                  variant="subtitle1"
+                  className={classes.tituloLocal}>{nombreLocal}
+                </Typography>
+              </Grid>
+              <Grid item container spacing={1}>
+                <Grid container item alignItems="center"> <AccessTimeIcon color="action" fontSize="small" /><Typography variant="body2" color="textSecondary">&nbsp;Entrega entre 20 y 30 minutos</Typography></Grid>
+                <Grid container item alignItems="center"> <PhoneIcon color="action" fontSize="small" /><Typography variant="body2" color="textSecondary">&nbsp;{telefono}</Typography></Grid>
+                <Grid container item alignItems="center"><StarIcon style={{ color: yellow[700] }} /><Typography variant="body2" color="textSecondary">&nbsp;{promCalificacion}</Typography></Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </Box>
+    </Box >
   );
 };
 
